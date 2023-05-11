@@ -65,7 +65,6 @@
   background-repeat: no-repeat;
 }
 .header__count-area {
-  /* display: none; */
   position: absolute;
   top: -35%;
   right: -45%;
@@ -76,13 +75,18 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  transition: opacity .5s linear;
+}
+.header__count-area_hidden{
+  opacity: 0;
 }
 .header__counter {
   margin:0;
   padding:0;
   color: #FFFFFF;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 18px;
 }
 .header__cart-link {
@@ -160,6 +164,7 @@
 }
 .product__about {
   width: 100%;
+  min-height: 74px;
   grid-row: 2/3;
   justify-items: flex-end;
   align-self:  end;
@@ -168,7 +173,7 @@
   grid-template-rows: 1fr 1fr;
 
 }
-.product__name {
+.product__title {
   margin:0;
   padding:0;
   justify-self: start;
@@ -188,13 +193,6 @@
   padding:0;
 }
 
-.price_type_simbol-after{
-
-}
-
-.price_type_simbol-before{
-
-}
 
 .product__price{
   font-weight: 600;
@@ -209,20 +207,24 @@
   content: '₽';
 }
 
-.product__price_old {
+.product__price_type_old {
   text-decoration: line-through;
   font-size: 13px;
   line-height: 16px;
   color: #FFCE7F;
 }
 
-.product__price_old::after{
+.product__price_hidden{
+  display: none;
+}
+
+.product__price_type_old::after{
   display: inline-block;
   padding-left: 3px;
   content: '₽';
 }
 
-.product__rate-value {
+.product__rate {
   justify-self: start;
   align-self: center;
   margin:0;
@@ -237,7 +239,7 @@
   color: #838383;
   vertical-align: center;
 }
-.product__rate-value::before {
+.product__rate::before {
   display: inline-block;
   width: 21px;
   height: 21px;
@@ -262,7 +264,6 @@
 }
 
 .buy-button {
-
   width: 65px;
   height: 21px;
   font-weight: 600;
@@ -271,23 +272,29 @@
   color: #000000;
   align-self: end;
   background-color: transparent;
+}
 
+.buy-button_hidden{
+  display: none;
 }
 
 .cart {
   width:100%;
-  min-height: calc(100vh - 310px);
+  min-height: calc(100vh - 309px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 127px;
 }
 .cart__item-container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .cart-item {
   box-sizing: border-box;
   padding: 18px;
-  width: 633px;
   height: 218px;
   background: #FFFFFF;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -306,11 +313,28 @@
 .cart-item__about {
   grid-column:2/3 ;
   grid-row: 2/3;
+  margin-left: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .cart-item__name {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  color: #1C1C27;
 }
 .cart-item__price {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #AAAAAA;
 }
+
 .cart-item__remove-button {
   grid-column: 3/4;
   grid-row: 1/2;
@@ -323,16 +347,20 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.edit-count {
-  grid-column: 1/2;
-  grid-row: 3/4;
+
+
+.count-editor {
   width: 125px;
   height:32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.edit-count__button {
+
+.count-editor_hidden{
+  display: none;
+}
+.count-editor__button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -342,7 +370,7 @@
   font-size: 22px;
 }
 
-.edit-count__actual-count {
+.count-editor__actual-count {
   margin:0;
   padding:0;
   font-weight: 600;
@@ -351,10 +379,25 @@
   color: #000000;
 }
 
+.product__count-editor{
+  align-self: end;
+}
+
+.cart-item__count-editor{
+  grid-column: 1/2;
+  grid-row: 3/4;
+  justify-self: center;
+}
+
 .cart-item__total-price {
   grid-column: 3/4;
   grid-row: 3/4;
   justify-self: end;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+
+color: #1C1C27;
 }
 .cart__info {
   width: 348.98px;
@@ -365,12 +408,6 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-.cart__cost {
-  padding: 20px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -423,8 +460,7 @@
 .footer__logo{
   justify-self: start;
 }
-.footer__nav {
-}
+
 .footer__nav-list {
   list-style: none;
   margin:0;
