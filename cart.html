@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css"></link>
+    <title>QPICK</title>
+</head>
+<body class="page">
+  <header class="header">
+    <h1 class="logo header__logo">
+      <a href="#" class="link logo__link">QPICK</a>
+    </h1>
+    <a href="#" class="link header__likes-link">
+        <div class="header__count-area">
+            <p class="header__counter header__counter_value_likes">2</p>
+        </div>
+    </a>
+    <a href="./cart.html" class="link header__cart-link">
+        <div class="header__count-area">
+            <p class=" header__counter header__counter_value_goods">0</p>
+        </div>
+    </a>
+</header>
+    <main class="content">
+      <section class="section section_value_cart">
+        <h2 class="section__title section__title_dark">Корзина</h2>
+        <div class="cart">
+          <div class="cart-list">
+            <!--  <template> -->
+              <article class="cart-item">
+                <img src="./assets/BO4.png" class="cart-item__img">
+                <div class="cart-item__about">
+                  <h3 class="cart-item__name">Тест</h3>
+                  <p class="price cart-item__price">1233</p>
+                </div>
+                <button class="button cart-item__remove-button" aria-label="Удалить товар"></button>
+                <div class="edit-count">
+                  <button class="button edit-count__button">-</button>
+                  <p class="edit-count__actual-count">1</p>
+                  <button class="button edit-count__button">+</button>
+                </div>
+                <p class="price cart-item__total-price">1345</p>
+              </article>
+            <!--  </template> -->
+          </div>
+          <div class="cart__info">
+            <p class="cart__total-price">ИТОГО
+              <span class="price  price_type_simbol-before cart__total-price-span">1223</span>
+            </p>
+            <button class="button cart__submit-button">Перейти к оформлению</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <h1 class="logo footer__logo">
+        <a href="#" class="link logo__link">QPICK</a>
+      </h1>
+      <nav class="footer__nav">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-item">
+            <a href="#" class="link footer__link">Избранное</a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="#" class="link footer__link">Корзина</a>
+          </li>
+          <li class="footer__nav-item">
+            <a href="#" class="link footer__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="footer__about">
+        <a href="#" class="link footer__link">Условия сервиса</a>
+        <form class="footer__change-lang-form">
+          <input type="radio" id="kazLang"  name="lang" class="footer__lang-input"></input>
+          <label for="kazLang" class="footer__lang-label">Kaz</label>
+          <input type="radio" id="rusLang" name="lang" class="footer__lang-input" checked="checked"></input>
+          <label for="rusLang" class="footer__lang-label">Rus</label>
+          <input type="radio" id="engLang"  name="lang" class="footer__lang-input"></input>
+          <label for="engLang" class="footer__lang-label">Eng</label>
+        </form>
+      </div>
+      <div class="footer__social-links">
+        <a href="#" class="link footer__link"><img src="./assets/VK-icon.png" alt="Вконтакте" class="footer__social-icon"></a>
+        <a href="#" class="link footer__link"><img src="./assets/Telegram-icon.png" alt="Телеграм" class="footer__social-icon"></a>
+        <a href="#" class="link footer__link"><img src="./assets/Whatsapp-icon.png" alt="Ватс Ап" class="footer__social-icon"></a>
+      </div>
+    </footer>
+</body>
+</html>
