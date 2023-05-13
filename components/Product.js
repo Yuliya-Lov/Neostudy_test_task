@@ -1,5 +1,5 @@
 export default class Product {
-  constructor(data, templateSelector, addCartItem, removeCartItem, deleteCartItem){
+  constructor(data, templateSelector, addCartItem, removeCartItem){
     this.id = data.id;
     this._title = data.title;
     this._img = data.img;
@@ -9,7 +9,6 @@ export default class Product {
     this._template = templateSelector;
     this._addCartItem = addCartItem;
     this._removeCartItem = removeCartItem;
-    this._deleteCartItem = deleteCartItem;
     this.count = 0;
   }
 
@@ -47,6 +46,10 @@ export default class Product {
     }
     this._productRate= this._product.querySelector('#itemRate');
     this._productBuyButton = this._product.querySelector('.buy-button');
+    if(this.count > 0){
+      this._isBought(true);
+      //this._setCount();
+    }
     return this._product;
   }
 
@@ -68,67 +71,83 @@ export default class Product {
     }
   }
 
+  _setCount(count){
+    this._productActualCount.textContent = count;
+  }
+
+  _setTotalProductPrice(count){
+    this._productTotalPrice.textContent = +this._productPrice.textContent*count;
+  }
+
   _setProductEventListeners(){
     this._productBuyButton.addEventListener('click', () =>{
+      this.count += 1;
+      this._setCount(this.count);
       this._addCartItem(this);
       this._isBought(true);
-      this._productActualCount.textContent = this.count + 1;
-      return this.count = +this._productActualCount.textContent;
+      return this.count;
     })
     this._productUpCountButton.addEventListener('click', () => {
+      this.count += 1;
+      this._setCount(this.count);
       this._addCartItem(this);
-      this._productActualCount.textContent = +this._productActualCount.textContent + 1;
-      return this.count = +this._productActualCount.textContent;
+      return this.count;
     })
     this._productLowCountButton.addEventListener('click', ()=>{
-      this._removeCartItem(this);
       if(this.count == 1){
         this._isBought(false);
-        return this.count = 0;
+        this.count = 0;
+        this._removeCartItem(this);
+        return this.count;
       } else {
-        this._productActualCount.textContent = this.count - 1;
-      return this.count = +this._productActualCount.textContent;
+        this.count -= 1;
+        this._setCount(this.count);
+        this._removeCartItem(this);
+        return this.count;
       }
     })
   }
   _setCartItemEventListeners(){
     this._productUpCountButton.addEventListener('click', () => {
+      this.count += 1;
       this._addCartItem(this);
-      this._productActualCount.textContent = +this._productActualCount.textContent + 1;
-      this.count = +this._productActualCount.textContent;
-      this._productTotalPrice.textContent = +this._productPrice.textContent*this.count;
+      this._setCount(this.count);
+      this._setTotalProductPrice(this.count);
       return this.count;
     })
     this._productLowCountButton.addEventListener('click', ()=>{
-      if(this.count == 1){
-        this._removeCartItem(this);
+      if(this.count <= 1){
         this.count = 0;
-        this._productTotalPrice.textContent = +this._productPrice.textContent*this.count;
+        this._removeCartItem(this);
+        this._product.remove();
         return this.count;
       } else {
-        this._removeCartItem(this);
         this.count -= 1;
-        this._productActualCount.textContent = this.count;
-        this._productTotalPrice.textContent = +this._productPrice.textContent*this.count;
+        this._setCount(this.count);
+        this._removeCartItem(this);
+        this._setTotalProductPrice(this.count);
         return this.count;
       }
     })
     this._productDeleteButton.addEventListener('click', ()=>{
       this.count = 0;
-      this._deleteCartItem(this);
+      this._removeCartItem(this);
+      this._product.remove();
+      return this.count;
     })
   }
 
-    generateProduct(){
-      this._createProduct();
-      this._setProductEventListeners();
-      return this._product;
+  generateProduct(){
+    this._createProduct();
+    this._setProductEventListeners();
+    return this._product;
     }
 
-    generateCartItem(cartItemTemlate){
-      this._createCardItem(cartItemTemlate);
-      this._setCartItemEventListeners();
-      return this._product;
+  generateCartItem(cartItemTemlate){
+    this._createCardItem(cartItemTemlate);
+    this. _setTotalProductPrice(this.count);
+    this._setCartItemEventListeners();
+    return this._product;
     }
 
 }

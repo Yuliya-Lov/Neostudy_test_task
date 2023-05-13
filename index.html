@@ -17,13 +17,42 @@
                 <p class="header__counter header__counter_value_likes">2</p>
             </div>
         </a>
-        <a href="#" class="link header__cart-link">
+        <a href="./cart.html" class="link header__cart-link">
             <div class="header__count-area">
                 <p class=" header__counter header__counter_value_goods">0</p>
             </div>
         </a>
     </header>
     <main class="content">
+      <section id="headphonesSection" class="section">
+        <h2  id="sectionTitle" class="section__title"></h2>
+        <div id="sectionContainer" class="section__container">
+          <template id="productTemplate">
+            <article id="item" class="product">
+              <img  id="itemImg" class="product__img">
+              <div class="product__about">
+                <h3 id="itemTitle" class="product__title">Тест</h3>
+                <div class="product__prices">
+                  <p  id="itemPrice" class="price price_type_simbol-after product__price product__price_type_actual">1233</p>
+                  <p  id="itemOldPrice" class="price price_type_simbol-after product__price product__price_type_old product__price_hidden">1234</p>
+                </div>
+                <p id="itemRate" class="product__rate">4.5</p>
+                <button class="button buy-button">Купить</button>
+                <div id="countEditor" class="count-editor product__count-editor count-editor_hidden">
+                  <button id="lowButton" class="button count-editor__button">-</button>
+                  <p id="itemCount" class="count-editor__actual-count">1</p>
+                  <button id="upButton" class="button count-editor__button">+</button>
+                </div>
+              </div>
+            </article>
+          </template>
+        </div>
+      </section>
+      <section id="wirelessHeadphonesSection" class="section">
+        <h2  id="sectionTitle" class="section__title"></h2>
+        <div id="sectionContainer" class="section__container">
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <h1 class="logo footer__logo">
@@ -59,65 +88,9 @@
         <a href="#" class="link footer__link"><img src="./assets/Whatsapp-icon.png" alt="Ватс Ап" class="footer__social-icon"></a>
       </div>
     </footer>
-    <template id="productSectionTemplate">
-      <section class="section">
-        <h2  id="sectionTitle" class="section__title"></h2>
-        <div id="sectionContainer" class="section__container">
-        </div>
-      </section>
-    </template>
-    <template id="cartSectionTemplate">
-      <section  class="section">
-        <h2  id="sectionTitle" class="section__title section__title_dark"></h2>
-        <div class="cart">
-          <div  id="sectionContainer" class="cart__item-container">
-          </div>
-          <div class="cart__info">
-            <p class="cart__total-price">ИТОГО
-              <span class="price  price_type_simbol-before cart__total-price-span">1223</span>
-            </p>
-            <button class="button cart__submit-button">Перейти к оформлению</button>
-          </div>
-        </div>
-      </section>
-    </template>
-    <template id="cartItemTemplate">
-      <article  id="item" class="cart-item">
-        <img  id="itemImg"  class="cart-item__img">
-        <div class="cart-item__about">
-          <h3 id="itemTitle" class="cart-item__name">Тест</h3>
-          <p id="itemPrice" class="price price_type_simbol-after cart-item__price">1233</p>
-        </div>
-        <button id="itemDeleteButton" class="button cart-item__remove-button" aria-label="Удалить товар"></button>
-        <div class="count-editor cart-item__count-editor">
-          <button  id="lowButton" class="button count-editor__button">-</button>
-          <p id="itemCount" class="count-editor__actual-count">1</p>
-          <button  id="upButton" class="button count-editor__button">+</button>
-        </div>
-        <p id="itemTotalPrice" class="price price_type_simbol-after cart-item__total-price">1345</p>
-      </article>
-    </template>
-    <template id="productTemplate">
-      <article id="item" class="product">
-        <img  id="itemImg" class="product__img">
-        <div class="product__about">
-          <h3 id="itemTitle" class="product__title">Тест</h3>
-          <div class="product__prices">
-            <p  id="itemPrice" class="price price_type_simbol-after product__price product__price_type_actual">1233</p>
-            <p  id="itemOldPrice" class="price price_type_simbol-after product__price product__price_type_old product__price_hidden">1234</p>
-          </div>
-          <p id="itemRate" class="product__rate">4.5</p>
-          <button class="button buy-button">Купить</button>
-          <div id="countEditor" class="count-editor product__count-editor count-editor_hidden">
-            <button id="lowButton" class="button count-editor__button">-</button>
-            <p id="itemCount" class="count-editor__actual-count">1</p>
-            <button id="upButton" class="button count-editor__button">+</button>
-          </div>
-        </div>
-      </article>
-    </template>
+    <script type="module" src="./utils/constants.js"></script>
+    <script type="module" src="./pages/scripts.js"></script>
     <script type="module" src="./components/Product.js"></script>
-    <script type="module" src="./components/CartItem.js"></script>
     <script type="module" src="./components/Section.js"></script>
     <script type="module" src="./pages/index.js"></script>
 </body>
