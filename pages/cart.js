@@ -1,50 +1,36 @@
-import Product from "../components/Product.js";
-import Section from "../components/Section.js";
 import {
-  headphones,
-  wirelessHeadphones,
-  allProducts,
-  cartButton,
-  cartButtonCount,
-  cartButtonCountArea,
-  sectionsParent,
-  cartProductList
+  cartTotalPrice
 } from "../utils/constants.js";
 import {
-  setSessionStorageObj,
-  getSessionStorageArrItems,
-  getTotalCount,
-  setCartCount,
-  headphonesProductArray,
-  wirelessHeadphonesProductArray,
+  sessionData,
   allProductsArray,
-  loadSessionStorage,
-  setCurrentCountOfProduct
+  setCartCount,
+  setTotalPrice
 } from "../pages/scripts.js";
+import Section from "../components/Section.js";
 
-loadSessionStorage();
-
-setCartCount(getTotalCount(getSessionStorageArrItems()));
+sessionData.loadSessionStorage();
+sessionData.setCurrentCountOfAllProducts(allProductsArray);
+setCartCount(sessionData.getTotalCountStorageItems());
+setTotalPrice(sessionData.getTotalPriceStorageItems());
 
 const cartSection = new Section(
   'Корзина',
-  '#cartSection',
-  () => console.log('changeCountAction')
-  )
+  '#cartSection'
+)
+cartSection.generateSection();
 
-  cartSection.generateSection(sectionsParent);
+const cartRenderList = sessionData.getAllStorageItemsArr().map(cartEl => {
+  const cartProduct = allProductsArray.find(product => {
+    if (product.id == Object.keys(cartEl)[0])
+      return product;
+  })
+  cartProduct.count = +Object.values(cartEl)[0];
+  return cartProduct.generateCartItem('#cartItemTemplate');
+})
 
+cartSection.addRendersArr(cartRenderList);
 
-  let cartRenderList = setCurrentCountOfProduct(getSessionStorageArrItems()).map(el => el.generateCartItem('#cartItemTemplate'));
-
-
-  console.log(cartRenderList);
-
-  cartSection.addRendersArr(cartRenderList);
-
-  cartRenderList.forEach(el => {
-    console.log(el.id, el.count)
-  });
 
 
 

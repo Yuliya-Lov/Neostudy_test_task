@@ -1,97 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QPICK</title>
-    <link rel="stylesheet" href="./pages/index.css"></link>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QPICK</title>
+  <link rel="stylesheet" href="./pages/index.css">
+  </link>
 </head>
+
 <body class="page">
-    <header class="header">
-        <h1 class="logo header__logo">
-          <a href="#" class="link logo__link">QPICK</a>
-        </h1>
-        <a href="#" class="link header__likes-link">
-            <div class="header__count-area">
-                <p class="header__counter header__counter_value_likes">2</p>
-            </div>
-        </a>
-        <a href="./cart.html" class="link header__cart-link">
-            <div class="header__count-area">
-                <p class=" header__counter header__counter_value_goods">0</p>
-            </div>
-        </a>
-    </header>
-    <main class="content">
-      <section id="headphonesSection" class="section">
-        <h2  id="sectionTitle" class="section__title"></h2>
-        <div id="sectionContainer" class="section__container">
-          <template id="productTemplate">
-            <article id="item" class="product">
-              <img  id="itemImg" class="product__img">
-              <div class="product__about">
-                <h3 id="itemTitle" class="product__title">Тест</h3>
-                <div class="product__prices">
-                  <p  id="itemPrice" class="price price_type_simbol-after product__price product__price_type_actual">1233</p>
-                  <p  id="itemOldPrice" class="price price_type_simbol-after product__price product__price_type_old product__price_hidden">1234</p>
-                </div>
-                <p id="itemRate" class="product__rate">4.5</p>
-                <button class="button buy-button">Купить</button>
-                <div id="countEditor" class="count-editor product__count-editor count-editor_hidden">
-                  <button id="lowButton" class="button count-editor__button">-</button>
-                  <p id="itemCount" class="count-editor__actual-count">1</p>
-                  <button id="upButton" class="button count-editor__button">+</button>
-                </div>
+  <header class="header">
+    <h1 class="logo header__logo">
+      <a href="#" class="link logo__link">QPICK</a>
+    </h1>
+    <a href="#" class="link header__likes-link">
+      <div class="header__count-area">
+        <p class="header__counter header__counter_value_likes">2</p>
+      </div>
+    </a>
+    <a href="./cart.html" class="link header__cart-link">
+      <div class="header__count-area">
+        <p class=" header__counter header__counter_value_goods">0</p>
+      </div>
+    </a>
+  </header>
+  <main class="content">
+    <section id="headphonesSection" class="section">
+      <h2 id="sectionTitle" class="section__title"></h2>
+      <div id="sectionContainer" class="section__container">
+        <template id="productTemplate">
+          <article id="item" class="product">
+            <img id="itemImg" class="product__img">
+            <div class="product__about">
+              <h3 id="itemTitle" class="product__title"></h3>
+              <div class="product__prices">
+                <p id="itemPrice" class="price price_type_simbol-after product__price product__price_type_actual">
+                </p>
+                <p id="itemOldPrice"
+                  class="price price_type_simbol-after product__price product__price_type_old product__price_hidden">
+                  </p>
               </div>
-            </article>
-          </template>
-        </div>
-      </section>
-      <section id="wirelessHeadphonesSection" class="section">
-        <h2  id="sectionTitle" class="section__title"></h2>
-        <div id="sectionContainer" class="section__container">
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <h1 class="logo footer__logo">
-        <a href="#" class="link logo__link">QPICK</a>
-      </h1>
-      <nav class="footer__nav">
-        <ul class="footer__nav-list">
-          <li class="footer__nav-item">
-            <a href="#" class="link footer__link">Избранное</a>
-          </li>
-          <li class="footer__nav-item">
-            <a href="#" class="link footer__link">Корзина</a>
-          </li>
-          <li class="footer__nav-item">
-            <a href="#" class="link footer__link">Контакты</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="footer__about">
-        <a href="#" class="link footer__link">Условия сервиса</a>
-        <form class="footer__change-lang-form">
-          <input type="radio" id="kazLang"  name="lang" class="footer__lang-input"></input>
-          <label for="kazLang" class="footer__lang-label">Kaz</label>
-          <input type="radio" id="rusLang" name="lang" class="footer__lang-input" checked="checked"></input>
-          <label for="rusLang" class="footer__lang-label">Rus</label>
-          <input type="radio" id="engLang"  name="lang" class="footer__lang-input"></input>
-          <label for="engLang" class="footer__lang-label">Eng</label>
-        </form>
+              <p id="itemRate" class="product__rate">4.5</p>
+              <button class="button buy-button">Купить</button>
+              <div id="countEditor" class="count-editor product__count-editor count-editor_hidden">
+                <button id="lowButton" class="button count-editor__button">-</button>
+                <p id="itemCount" class="count-editor__actual-count">1</p>
+                <button id="upButton" class="button count-editor__button">+</button>
+              </div>
+            </div>
+          </article>
+        </template>
       </div>
-      <div class="footer__social-links">
-        <a href="#" class="link footer__link"><img src="./assets/VK-icon.png" alt="Вконтакте" class="footer__social-icon"></a>
-        <a href="#" class="link footer__link"><img src="./assets/Telegram-icon.png" alt="Телеграм" class="footer__social-icon"></a>
-        <a href="#" class="link footer__link"><img src="./assets/Whatsapp-icon.png" alt="Ватс Ап" class="footer__social-icon"></a>
+    </section>
+    <section id="wirelessHeadphonesSection" class="section">
+      <h2 id="sectionTitle" class="section__title"></h2>
+      <div id="sectionContainer" class="section__container">
       </div>
-    </footer>
-    <script type="module" src="./utils/constants.js"></script>
-    <script type="module" src="./pages/scripts.js"></script>
-    <script type="module" src="./components/Product.js"></script>
-    <script type="module" src="./components/Section.js"></script>
-    <script type="module" src="./pages/index.js"></script>
+    </section>
+  </main>
+  <footer class="footer">
+    <h1 class="logo footer__logo">
+      <a href="#" class="link logo__link">QPICK</a>
+    </h1>
+    <nav class="footer__nav">
+      <ul class="footer__nav-list">
+        <li class="footer__nav-item">
+          <a href="#" class="link footer__link">Избранное</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="./cart.html" class="link footer__link">Корзина</a>
+        </li>
+        <li class="footer__nav-item">
+          <a href="#" class="link footer__link">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="footer__about">
+      <a href="#" class="link footer__link">Условия сервиса</a>
+      <form class="footer__change-lang-form">
+        <input type="radio" id="kazLang" name="lang" class="footer__lang-input"></input>
+        <label for="kazLang" class="footer__lang-label">Kaz</label>
+        <input type="radio" id="rusLang" name="lang" class="footer__lang-input" checked="checked"></input>
+        <label for="rusLang" class="footer__lang-label">Rus</label>
+        <input type="radio" id="engLang" name="lang" class="footer__lang-input"></input>
+        <label for="engLang" class="footer__lang-label">Eng</label>
+      </form>
+    </div>
+    <div class="footer__social-links">
+      <a href="#" class="link footer__link"><img src="./assets/VK-icon.png" alt="Вконтакте"
+          class="footer__social-icon"></a>
+      <a href="#" class="link footer__link"><img src="./assets/Telegram-icon.png" alt="Телеграм"
+          class="footer__social-icon"></a>
+      <a href="#" class="link footer__link"><img src="./assets/Whatsapp-icon.png" alt="Ватс Ап"
+          class="footer__social-icon"></a>
+    </div>
+  </footer>
+  <script type="module" src="./utils/constants.js"></script>
+  <script type="module" src="./pages/scripts.js"></script>
+  <script type="module" src="./components/Product.js"></script>
+  <script type="module" src="./components/Section.js"></script>
+  <script type="module" src="./pages/index.js"></script>
 </body>
+
 </html>
