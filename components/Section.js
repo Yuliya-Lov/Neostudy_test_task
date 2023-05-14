@@ -22,7 +22,6 @@ export default class Section {
     render.remove();
   }
 
-
   generateSection() {
     this._parent.append(this._createSection());
   }

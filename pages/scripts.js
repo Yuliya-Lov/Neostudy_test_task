@@ -44,9 +44,7 @@ function setPriceWithSpaces(price) {
 export function setTotalPrice(totalPrice){
   cartTotalPrice.textContent = totalPrice;
   setPriceWithSpaces(cartTotalPrice);
-  console.log(cartTotalPrice.textContent);
 }
-
 
 function addCartItem(item) {
   const currentStorageItem = sessionData.getAllStorageItemsArr().find(el => Object.keys(el)[0] == item.id);
